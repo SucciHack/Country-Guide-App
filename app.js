@@ -2,7 +2,11 @@ const API = 'https://restcountries.com/v3.1/all'
 
 async function fetchData(){
     try {
-        const response = await fetch(API,{ mode: 'cors' })
+        const response = await fetch(API,{
+            headers: {
+              "Cache-Control": "no-cache",
+            },
+          })
         const data = await response.json()
         renderCountryData(data)
     }catch(error){
