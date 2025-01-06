@@ -11,8 +11,12 @@ const results = document.querySelector(".results")
         const finalURL = `https://restcountries.com/v3.1/name/${selectedCountry}?fullText=true`
         const response = await fetch(finalURL)
         const data = await response.json()
-        // const countryData = data.filter(country => country.name.common.toLowerCase() === selectedCountry)
+        
         if(data.length > 0){
+            const key =data[0].currencies[Object.keys(data[0].currencies)[0]]
+            const coKey = [Object.keys(data[0].currencies)[0]]
+            console.log(coKey)
+
             results.innerHTML = ""
             resultsTemplate = `
             <div class="country">
@@ -24,6 +28,7 @@ const results = document.querySelector(".results")
                 <p><b>Region</b>: ${data[0].region}</p>
                 <p><b>Population</b>: ${data[0].population}</p>
                 <p><b>Languages</b>: ${Object.values(data[0].languages).join(", ")}</p>
+                <p><b>Currencies</b>: ${key.name} (${key.symbol})</p>
             </div>
             `
             results.insertAdjacentHTML("beforeend", resultsTemplate)
