@@ -1,19 +1,3 @@
-// const API = 'https://restcountries.com/v3.1/all'
-// const test = document.querySelector(".test")
-
-// async function fetchData(){
-//     try {
-//         const response = await fetch(API)
-//         const data = await response.json()
-//         console.log(data)
-//         renderCountryData(data)
-//         // renderTestItems(data)
-//     }catch(error){
-//         console.log(error)
-//     }
-// }
-// fetchData()
-
 const inputField = document.querySelector("input")
 const searchButton = document.querySelector("button")
 
